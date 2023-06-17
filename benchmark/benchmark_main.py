@@ -31,23 +31,168 @@ agents = {
     'qEI': qEI,
 }
 
-with open('test_environments.json', mode='r') as json_file:
-    testing_envs = json.load(json_file)
+Griewank = "Griewank"
+Zakharov = "Zakharov"
+Easom = "Easom"
+Ackley = "Ackley"
+DifferentPowers = "DifferentPowers"
+Schwefel = "Schwefel"
+
+testing_envs = {
+    Griewank: [{
+        "batch_size": 2,
+        "dim": 2,
+        "noise": 0.0,
+        "n_iter": 80,
+    }, {
+        "batch_size": 2,
+        "dim": 2,
+        "noise": .05,
+        "n_iter": 80,
+    }, {
+        "batch_size": 2,
+        "dim": 2,
+        "noise": .10,
+        "n_iter": 80,
+    }, {
+        "batch_size": 2,
+        "dim": 2,
+        "noise": .20,
+        "n_iter": 80,
+    }, {
+        "batch_size": 2,
+        "dim": 2,
+        "noise": .40,
+        "n_iter": 80,
+    }],
+    Easom: [
+        {
+        "batch_size": 2,
+        "dim": 2,
+        "noise": .05,
+        "n_iter": 80,
+    },
+        {
+        "batch_size": 2,
+        "dim": 10,
+        "noise": .05,
+        "n_iter": 80,
+    }, {
+        "batch_size": 2,
+        "dim": 25,
+        "noise": .05,
+        "n_iter": 100,
+    }, {
+        "batch_size": 2,
+        "dim": 50,
+        "noise": .05,
+        "n_iter": 80,
+    },],
+    Zakharov: [{
+        "batch_size": 2,
+        "dim": 2,
+        "noise": .0,
+        "n_iter": 80,
+    }, {
+        "batch_size": 5,
+        "dim": 2,
+        "noise": .0,
+        "n_iter": 50,
+    }, {
+        "batch_size": 10,
+        "dim": 2,
+        "noise": .0,
+        "n_iter": 40,
+    }, {
+        "batch_size": 25,
+        "dim": 2,
+        "noise": .0,
+        "n_iter": 15,
+    }],
+    Ackley: [{
+        "batch_size": 10,
+        "dim": 2,
+        "noise": .1,
+        "n_iter": 40,
+    }, {
+        "batch_size": 10,
+        "dim": 10,
+        "noise": .1,
+        "n_iter": 40,
+    }, {
+        "batch_size": 10,
+        "dim": 25,
+        "noise": .1,
+        "n_iter": 40,
+    }, {
+        "batch_size": 10,
+        "dim": 50,
+        "noise": .1,
+        "n_iter": 40,
+    },],
+    Schwefel: [{
+        "batch_size": 2,
+        "dim": 25,
+        "noise": .2,
+        "n_iter": 80,
+    }, {
+        "batch_size": 5,
+        "dim": 25,
+        "noise": .2,
+        "n_iter": 50,
+    }, {
+        "batch_size": 10,
+        "dim": 25,
+        "noise": .2,
+        "n_iter": 40,
+    }, {
+        "batch_size": 25,
+        "dim": 25,
+        "noise": .2,
+        "n_iter": 15,
+    }],
+    DifferentPowers: [{
+        "batch_size": 5,
+        "dim": 2,
+        "noise": .0,
+        "n_iter": 50,
+    }, {
+        "batch_size": 5,
+        "dim": 10,
+        "noise": .05,
+        "n_iter": 50,
+    }, {
+        "batch_size": 5,
+        "dim": 10,
+        "noise": .1,
+        "n_iter": 50,
+    }, {
+        "batch_size": 5,
+        "dim": 10,
+        "noise": .2,
+        "n_iter": 50,
+    }, {
+        "batch_size": 5,
+        "dim": 10,
+        "noise": .4,
+        "n_iter": 50,
+    }],
+}
 
 
 def create_function_env(function_name, n_dim, noise) -> (FunctionEnv, FunctionEnv):
     match function_name:
-        case 'Griewank':
+        case Griewank:
             base = fx.real.Griewank
-        case 'Easom':
+        case Easom:
             base = fx.real.Easom
-        case 'Ackley':
+        case Ackley:
             base = fx.real.Ackley
-        case 'DifferentPowers':
+        case DifferentPowers:
             base = fx.real.DifferentPowers
-        case 'Schwefel':
+        case Schwefel:
             base = fx.real.Schwefel
-        case 'Zakharov':
+        case Zakharov:
             base = fx.real.Zakharov
         case _:
             raise ValueError(f'Unknown function name: {function_name}')
@@ -97,17 +242,17 @@ def get_noise(function_name, env_settings):
 
 def get_range(function_name, n_dim):
     match function_name:
-        case 'Griewank':
+        case Griewank:
             x_range = (-600, 600)
-        case 'Easom':
+        case Easom:
             x_range = (-100, 100)
-        case 'Ackley':
+        case Ackley:
             x_range = (-32.768, 32.768)
-        case 'DifferentPowers':
+        case DifferentPowers:
             x_range = (-1, 1)
-        case 'Schwefel':
+        case Schwefel:
             x_range = (-500, 500)
-        case 'Zakharov':
+        case Zakharov:
             x_range = (-5, 10)
         case _:
             raise ValueError(f'Unknown function name: {function_name}')
