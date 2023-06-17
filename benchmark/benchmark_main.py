@@ -31,7 +31,7 @@ agents = {
     'qEI': qEI,
 }
 
-with open('./test_environments.json', mode='r') as json_file:
+with open('test_environments.json', mode='r') as json_file:
     testing_envs = json.load(json_file)
 
 
@@ -159,7 +159,10 @@ def find_argmax_mean(model: ExactGP, x_range: torch.Tensor) -> jax.Array:
 
 
 def write_to_file(data):
-    with open('./test_results' + str(datetime.now()) + '.json', mode='w') as json_file:
+    file_name = 'test_results' + str(datetime.now()).replace(' ', 'T')
+    file_name = file_name.split('.')[0]
+    file_name = file_name.replace(':', '-')
+    with open(file_name + '.json', mode='w') as json_file:
         json.dump(data, json_file)
 
 
