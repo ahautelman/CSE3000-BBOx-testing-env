@@ -147,9 +147,10 @@ class qPES(BOAgent):
             acq_function=agent,
             bounds=self.x_range_normalized,
             q=self.batch_size,
-            num_restarts=5,
-            raw_samples=256,
+            num_restarts=2,
+            raw_samples=32,
             options={'with_grad': False},
+            sequential=True,
         )
         return candidate
 
@@ -168,8 +169,8 @@ class qMES(BOAgent):
             acq_function=agent,
             bounds=self.x_range_normalized,
             q=self.batch_size,
-            num_restarts=5,
-            raw_samples=216,
+            num_restarts=2,
+            raw_samples=32,
             sequential=True,
         )
         return candidate
@@ -198,8 +199,9 @@ class qJES(BOAgent):
             acq_function=agent,
             bounds=self.x_range_normalized,
             q=self.batch_size,
-            num_restarts=5,
-            raw_samples=256,
+            num_restarts=2,
+            raw_samples=32,
+            sequential=True,
         )
         return candidate
 
@@ -217,8 +219,9 @@ class qEI(BOAgent):
             acq_function=agent,
             bounds=self.x_range_normalized,
             q=self.batch_size,
-            num_restarts=5,
-            raw_samples=216,
+            num_restarts=2,
+            raw_samples=32,
+            sequential=True,
         )
         return candidate
 

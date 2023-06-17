@@ -95,7 +95,7 @@ def get_noise(function_name, env_settings):
             raise ValueError(f'Unknown function name: {function_name}')
 
 
-def get_range(function_name, env_settings):
+def get_range(function_name, n_dim):
     match function_name:
         case 'Griewank':
             x_range = (-600, 600)
@@ -112,7 +112,8 @@ def get_range(function_name, env_settings):
         case _:
             raise ValueError(f'Unknown function name: {function_name}')
 
-    x_range_per_dim = [x_range for _ in range(env_settings['dim'])]
+
+    x_range_per_dim = [x_range for _ in range(n_dim)]
     x_min = torch.tensor([x[0] for x in x_range_per_dim]).double()
     x_max = torch.tensor([x[1] for x in x_range_per_dim]).double()
     # x_min = torch.tensor([x[0] for x in x_range_per_dim])
@@ -157,6 +158,11 @@ def find_argmax_mean(model: ExactGP, x_range: torch.Tensor) -> jax.Array:
     return tensor_to_jax_array(x_best)
 
 
+def write_to_file(data):
+    with open('./test_results' + str(datetime.now()) + '.json', mode='w') as json_file:
+        json.dump(data, json_file)
+
+
 def run_experiment(_key: PRNGKeyArray):
     # run for all agents
     # init dictionary for storing metrics
@@ -170,10 +176,9 @@ def run_experiment(_key: PRNGKeyArray):
             # get environment settings
             n_dim = env_setting['dim']
             noise = get_noise(function, env_setting)
-            x_range = get_range(function, env_setting)
+            x_range = get_range(function, n_dim)
             batch_size = env_setting['batch_size']
             n_iter = env_setting['n_iter']
-            # n_iter = 1
 
             # objective function does not contain wrappers (ie: noise)
             objective_function, black_box_function = create_function_env(function, n_dim, noise)
@@ -260,7 +265,8 @@ def run_experiment(_key: PRNGKeyArray):
 
                                 runtime.append(end - start)
 
-                            except:
+                            except Exception as e:
+                                print(e)
                                 break
 
                         data[agent_name][run_name][run] = {
@@ -271,16 +277,15 @@ def run_experiment(_key: PRNGKeyArray):
                             'inference': inference,
                             'runtime': runtime,
                         }
+                        write_to_file(data)
                 except Exception as e:
                     print(e)
                     continue
-        break
 
     return data
 
 
 data = run_experiment(key)
-with open('./test_results' + str(datetime.now()) + '.json', mode='w') as json_file:
-    json.dump(data, json_file)
+write_to_file(data)
 
 exit(0)
