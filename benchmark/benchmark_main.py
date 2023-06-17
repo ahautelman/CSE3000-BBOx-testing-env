@@ -182,17 +182,17 @@ testing_envs = {
 
 def create_function_env(function_name, n_dim, noise) -> (FunctionEnv, FunctionEnv):
     match function_name:
-        case Griewank:
+        case 'Griewank':
             base = fx.real.Griewank
-        case Easom:
+        case 'Easom':
             base = fx.real.Easom
-        case Ackley:
+        case 'Ackley':
             base = fx.real.Ackley
-        case DifferentPowers:
+        case 'DifferentPowers':
             base = fx.real.DifferentPowers
-        case Schwefel:
+        case 'Schwefel':
             base = fx.real.Schwefel
-        case Zakharov:
+        case 'Zakharov':
             base = fx.real.Zakharov
         case _:
             raise ValueError(f'Unknown function name: {function_name}')
@@ -242,17 +242,17 @@ def get_noise(function_name, env_settings):
 
 def get_range(function_name, n_dim):
     match function_name:
-        case Griewank:
+        case 'Griewank':
             x_range = (-600, 600)
-        case Easom:
+        case 'Easom':
             x_range = (-100, 100)
-        case Ackley:
+        case 'Ackley':
             x_range = (-32.768, 32.768)
-        case DifferentPowers:
+        case 'DifferentPowers':
             x_range = (-1, 1)
-        case Schwefel:
+        case 'Schwefel':
             x_range = (-500, 500)
-        case Zakharov:
+        case 'Zakharov':
             x_range = (-5, 10)
         case _:
             raise ValueError(f'Unknown function name: {function_name}')
