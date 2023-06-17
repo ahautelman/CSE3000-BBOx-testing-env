@@ -15,7 +15,7 @@ from bbox import functions as fx
 from bbox import wrappers as wx
 from bbox._src.env.function_env import FunctionEnv
 from bbox._src.types import Parameter
-from benchmark.agent import RandomAgent, qPES, qMES, qJES, qEI
+from agent import RandomAgent, qPES, qMES, qJES, qEI
 from util import get_random_guess, tensor_to_jax_array, constrain
 
 n_runs_per_agent = 1
