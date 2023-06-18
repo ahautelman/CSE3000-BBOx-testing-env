@@ -246,7 +246,7 @@ def get_range(function_name, n_dim):
         case 'Griewank':
             x_range = (-600, 600)
         case 'Easom':
-            x_range = (-100, 100)
+            x_range = (-10, 10)
         case 'Ackley':
             x_range = (-32.768, 32.768)
         case 'DifferentPowers':
