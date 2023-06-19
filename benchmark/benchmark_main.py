@@ -111,50 +111,50 @@ testing_envs = {
         "n_iter": 15,
     }],
     Ackley: [{
-        "batch_size": 10,
+        "batch_size": 5,
         "dim": 2,
         "noise": .1,
-        "n_iter": 40,
+        "n_iter": 80,
     }, {
-        "batch_size": 10,
+        "batch_size": 5,
         "dim": 10,
         "noise": .1,
-        "n_iter": 40,
-    }, {
-        "batch_size": 10,
-        "dim": 25,
-        "noise": .1,
-        "n_iter": 40,
-    }, {
-        "batch_size": 10,
-        "dim": 50,
-        "noise": .1,
-        "n_iter": 40,
-    },],
-    Schwefel: [{
-        "batch_size": 2,
-        "dim": 25,
-        "noise": .2,
         "n_iter": 80,
     }, {
         "batch_size": 5,
         "dim": 25,
+        "noise": .1,
+        "n_iter": 80,
+    }, {
+        "batch_size": 5,
+        "dim": 50,
+        "noise": .1,
+        "n_iter": 80,
+    },],
+    Schwefel: [{
+        "batch_size": 2,
+        "dim": 10,
+        "noise": .2,
+        "n_iter": 100,
+    }, {
+        "batch_size": 5,
+        "dim": 10,
+        "noise": .2,
+        "n_iter": 70,
+    }, {
+        "batch_size": 10,
+        "dim": 10,
         "noise": .2,
         "n_iter": 50,
     }, {
-        "batch_size": 10,
-        "dim": 25,
-        "noise": .2,
-        "n_iter": 40,
-    }, {
         "batch_size": 25,
-        "dim": 25,
+        "dim": 10,
         "noise": .2,
-        "n_iter": 15,
+        "n_iter": 20,
     }],
     DifferentPowers: [{
         "batch_size": 5,
-        "dim": 2,
+        "dim": 10,
         "noise": .0,
         "n_iter": 50,
     }, {
@@ -225,7 +225,7 @@ def create_function_env(function_name, n_dim, noise) -> (FunctionEnv, FunctionEn
 def get_noise(function_name, env_settings):
     match function_name:
         case 'Griewank':
-            return env_settings['noise'] * 600 * env_settings['dim']
+            return env_settings['noise'] * 90 * env_settings['dim']
         case 'Easom':
             return env_settings['noise'] * 1
         case 'Ackley':
