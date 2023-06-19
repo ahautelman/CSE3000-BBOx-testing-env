@@ -21,7 +21,7 @@ from util import get_random_guess, tensor_to_jax_array, constrain
 n_runs_per_agent = 1
 
 ### Run environment
-key = jax.random.PRNGKey(2)
+key = jax.random.PRNGKey(3)
 
 agents = {
     'random': RandomAgent,
