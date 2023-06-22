@@ -88,5 +88,5 @@ kiwisolver~=1.4.4
 torch~=2.0.1
 platformdirs~=3.5.1
 gpytorch~=1.10
-botorch~=0.8.5
+botorch @ https://github.com/ahautelman/botorch-PES.git
 scikit-learn~=1.2.2
