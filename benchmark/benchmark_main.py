@@ -44,140 +44,141 @@ testing_envs = {
         "dim": 2,
         "noise": 0.0,
         "n_iter": 80,
-    }, {
-        "batch_size": 2,
-        "dim": 2,
-        "noise": .05,
-        "n_iter": 80,
-    }, {
-        "batch_size": 2,
-        "dim": 2,
-        "noise": .10,
-        "n_iter": 80,
-    }, {
-        "batch_size": 2,
-        "dim": 2,
-        "noise": .20,
-        "n_iter": 80,
-    }, {
-        "batch_size": 2,
-        "dim": 2,
-        "noise": .40,
-        "n_iter": 80,
-    }],
-    Easom: [
-        {
-        "batch_size": 2,
-        "dim": 2,
-        "noise": .05,
-        "n_iter": 80,
-    },
-        {
-        "batch_size": 2,
-        "dim": 10,
-        "noise": .05,
-        "n_iter": 80,
-    }, 
-        {
-        "batch_size": 2,
-        "dim": 25,
-        "noise": .05,
-        "n_iter": 100,
-    }, {
-        "batch_size": 2,
-        "dim": 50,
-        "noise": .05,
-        "n_iter": 80,
-    },],
-    Zakharov: [{
-        "batch_size": 2,
-        "dim": 2,
-        "noise": .0,
-        "n_iter": 80,
-    }, {
-        "batch_size": 5,
-        "dim": 2,
-        "noise": .0,
-        "n_iter": 50,
-    }, {
-        "batch_size": 10,
-        "dim": 2,
-        "noise": .0,
-        "n_iter": 40,
-    }, {
-        "batch_size": 25,
-        "dim": 2,
-        "noise": .0,
-        "n_iter": 15,
-    }],
-    Ackley: [{
-        "batch_size": 5,
-        "dim": 2,
-        "noise": .1,
-        "n_iter": 80,
-    }, {
-        "batch_size": 5,
-        "dim": 10,
-        "noise": .1,
-        "n_iter": 80,
-    }, {
-        "batch_size": 5,
-        "dim": 25,
-        "noise": .1,
-        "n_iter": 80,
-    }, {
-        "batch_size": 5,
-        "dim": 50,
-        "noise": .1,
-        "n_iter": 80,
-    },],
-    Schwefel: [{
-        "batch_size": 2,
-        "dim": 10,
-        "noise": .2,
-        "n_iter": 100,
-    }, {
-        "batch_size": 5,
-        "dim": 10,
-        "noise": .2,
-        "n_iter": 70,
-    }, {
-        "batch_size": 10,
-        "dim": 10,
-        "noise": .2,
-        "n_iter": 50,
-    }, {
-        "batch_size": 25,
-        "dim": 10,
-        "noise": .2,
-        "n_iter": 20,
-    }],
-    DifferentPowers: [{
-        "batch_size": 5,
-        "dim": 10,
-        "noise": .0,
-        "n_iter": 50,
-    }, {
-        "batch_size": 5,
-        "dim": 10,
-        "noise": .05,
-        "n_iter": 50,
-    }, {
-        "batch_size": 5,
-        "dim": 10,
-        "noise": .1,
-        "n_iter": 50,
-    }, {
-        "batch_size": 5,
-        "dim": 10,
-        "noise": .2,
-        "n_iter": 50,
-    }, {
-        "batch_size": 5,
-        "dim": 10,
-        "noise": .4,
-        "n_iter": 50,
-    }],
+    },]
+               # {
+    #     "batch_size": 2,
+    #     "dim": 2,
+    #     "noise": .05,
+    #     "n_iter": 80,
+    # }, {
+    #     "batch_size": 2,
+    #     "dim": 2,
+    #     "noise": .10,
+    #     "n_iter": 80,
+    # }, {
+    #     "batch_size": 2,
+    #     "dim": 2,
+    #     "noise": .20,
+    #     "n_iter": 80,
+    # }, {
+    #     "batch_size": 2,
+    #     "dim": 2,
+    #     "noise": .40,
+    #     "n_iter": 80,
+    # }],
+    # Easom: [
+    #     {
+    #     "batch_size": 2,
+    #     "dim": 2,
+    #     "noise": .05,
+    #     "n_iter": 80,
+    # },
+    #     {
+    #     "batch_size": 2,
+    #     "dim": 10,
+    #     "noise": .05,
+    #     "n_iter": 80,
+    # }, 
+    #     {
+    #     "batch_size": 2,
+    #     "dim": 25,
+    #     "noise": .05,
+    #     "n_iter": 100,
+    # }, {
+    #     "batch_size": 2,
+    #     "dim": 50,
+    #     "noise": .05,
+    #     "n_iter": 80,
+    # },],
+    # Zakharov: [{
+    #     "batch_size": 2,
+    #     "dim": 2,
+    #     "noise": .0,
+    #     "n_iter": 80,
+    # }, {
+    #     "batch_size": 5,
+    #     "dim": 2,
+    #     "noise": .0,
+    #     "n_iter": 50,
+    # }, {
+    #     "batch_size": 10,
+    #     "dim": 2,
+    #     "noise": .0,
+    #     "n_iter": 40,
+    # }, {
+    #     "batch_size": 25,
+    #     "dim": 2,
+    #     "noise": .0,
+    #     "n_iter": 15,
+    # }],
+    # Ackley: [{
+    #     "batch_size": 5,
+    #     "dim": 2,
+    #     "noise": .1,
+    #     "n_iter": 80,
+    # }, {
+    #     "batch_size": 5,
+    #     "dim": 10,
+    #     "noise": .1,
+    #     "n_iter": 80,
+    # }, {
+    #     "batch_size": 5,
+    #     "dim": 25,
+    #     "noise": .1,
+    #     "n_iter": 80,
+    # }, {
+    #     "batch_size": 5,
+    #     "dim": 50,
+    #     "noise": .1,
+    #     "n_iter": 80,
+    # },],
+    # Schwefel: [{
+    #     "batch_size": 2,
+    #     "dim": 10,
+    #     "noise": .2,
+    #     "n_iter": 100,
+    # }, {
+    #     "batch_size": 5,
+    #     "dim": 10,
+    #     "noise": .2,
+    #     "n_iter": 70,
+    # }, {
+    #     "batch_size": 10,
+    #     "dim": 10,
+    #     "noise": .2,
+    #     "n_iter": 50,
+    # }, {
+    #     "batch_size": 25,
+    #     "dim": 10,
+    #     "noise": .2,
+    #     "n_iter": 20,
+    # }],
+    # DifferentPowers: [{
+    #     "batch_size": 5,
+    #     "dim": 10,
+    #     "noise": .0,
+    #     "n_iter": 50,
+    # }, {
+    #     "batch_size": 5,
+    #     "dim": 10,
+    #     "noise": .05,
+    #     "n_iter": 50,
+    # }, {
+    #     "batch_size": 5,
+    #     "dim": 10,
+    #     "noise": .1,
+    #     "n_iter": 50,
+    # }, {
+    #     "batch_size": 5,
+    #     "dim": 10,
+    #     "noise": .2,
+    #     "n_iter": 50,
+    # }, {
+    #     "batch_size": 5,
+    #     "dim": 10,
+    #     "noise": .4,
+    #     "n_iter": 50,
+    # }],
 }
 
 
@@ -327,7 +328,8 @@ def run_experiment(_key: PRNGKeyArray):
             noise = get_noise(function, env_setting)
             x_range = get_range(function, n_dim)
             batch_size = env_setting['batch_size']
-            n_iter = env_setting['n_iter']
+            # n_iter = env_setting['n_iter']
+            n_iter = 1
 
             # objective function does not contain wrappers (ie: noise)
             objective_function, black_box_function = create_function_env(function, n_dim, noise)
