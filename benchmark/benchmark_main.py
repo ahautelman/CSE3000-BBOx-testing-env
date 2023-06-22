@@ -18,6 +18,14 @@ from bbox._src.types import Parameter
 from agent import RandomAgent, qPES, qMES, qJES, qEI
 from util import get_random_guess, tensor_to_jax_array, constrain
 
+import sys
+
+# get path to save files
+path = ''
+if len(sys.argv) > 1:
+    # Access the argument
+    path = sys.argv[1]
+
 n_runs_per_agent = 1
 
 ### Run environment
@@ -309,7 +317,7 @@ def write_to_file(data):
     file_name = 'test_results' + str(datetime.now()).replace(' ', 'T')
     file_name = file_name.split('.')[0]
     file_name = file_name.replace(':', '-')
-    with open(file_name + '.json', mode='w') as json_file:
+    with open(path + file_name + '.json', mode='w') as json_file:
         json.dump(data, json_file)
 
 
