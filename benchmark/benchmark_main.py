@@ -48,40 +48,40 @@ DifferentPowers = "DifferentPowers"
 Schwefel = "Schwefel"
 
 testing_envs = {
-    Griewank: [{
-        "batch_size": 2,
-        "dim": 2,
-        "noise": 0.0,
-        "n_iter": 80,
-    },
-               {
-        "batch_size": 2,
-        "dim": 2,
-        "noise": .05,
-        "n_iter": 80,
-    }, {
-        "batch_size": 2,
-        "dim": 2,
-        "noise": .10,
-        "n_iter": 80,
-    }, {
-        "batch_size": 2,
-        "dim": 2,
-        "noise": .20,
-        "n_iter": 80,
-    }, {
-        "batch_size": 2,
-        "dim": 2,
-        "noise": .40,
-        "n_iter": 80,
-    }],
+    # Griewank: [{
+    #     "batch_size": 2,
+    #     "dim": 2,
+    #     "noise": 0.0,
+    #     "n_iter": 80,
+    # },
+    #            {
+    #     "batch_size": 2,
+    #     "dim": 2,
+    #     "noise": .05,
+    #     "n_iter": 80,
+    # }, {
+    #     "batch_size": 2,
+    #     "dim": 2,
+    #     "noise": .10,
+    #     "n_iter": 80,
+    # }, {
+    #     "batch_size": 2,
+    #     "dim": 2,
+    #     "noise": .20,
+    #     "n_iter": 80,
+    # }, {
+    #     "batch_size": 2,
+    #     "dim": 2,
+    #     "noise": .40,
+    #     "n_iter": 80,
+    # }],
     Easom: [
-        {
-        "batch_size": 2,
-        "dim": 2,
-        "noise": .05,
-        "n_iter": 80,
-    },
+    #     {
+    #     "batch_size": 2,
+    #     "dim": 2,
+    #     "noise": .05,
+    #     "n_iter": 80,
+    # },
         {
         "batch_size": 2,
         "dim": 10,
