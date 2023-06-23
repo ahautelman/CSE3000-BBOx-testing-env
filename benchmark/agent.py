@@ -14,6 +14,8 @@ from gpytorch import ExactMarginalLogLikelihood
 from gpytorch.models import ExactGP
 from jit_env import Action, TimeStep
 
+import gc
+
 # import PES
 from util import jax_array_to_tensor, tensor_to_jax_array
 
@@ -65,12 +67,17 @@ class Agent:
         self.rewards = None
 
 class BOAgent(Agent):
-    def __init__(self, agent_name: str, n_dim: int, x_range: torch.Tensor, batch_size: int = 1):
+    def __init__(self, agent_name: str, n_dim: int, x_range: torch.Tensor, batch_size: int = 1, max_size: int = int(1e6)):
         super().__init__(agent_name, n_dim, x_range, batch_size)
+        self.max_size = max_size
         self.num_samples = 100
-        # self.x_range_normalized = torch.tensor([[0.0 for _ in range(n_dim)], [1.0 for _ in range(n_dim)]])\
-        #     .double().to(device)
         self.x_range_normalized = torch.tensor([[0.0 for _ in range(n_dim)], [1.0 for _ in range(n_dim)]]).to(device).double()
+
+        # preallocate tensors
+        self.actions = torch.empty((self.max_size, self.n_dim)).to(device).double()
+        self.rewards = torch.empty((self.max_size, 1)).to(device).double()
+        self.index = 0
+
 
     def get_action(self,
                    key_policy: jax.random.PRNGKey,
@@ -81,23 +88,41 @@ class BOAgent(Agent):
 
         normalized_actions = ((actions - self.x_range[0]) / (self.x_range[1] - self.x_range[0])).to(device)
 
-        if self.actions is None:
-            self.actions = normalized_actions
-            self.rewards = rewards
-        else:
-            self.actions = torch.cat((self.actions, normalized_actions))
-            self.rewards = torch.cat((self.rewards, rewards))
+        num_actions = normalized_actions.shape[0]
 
-        model = fit_model(self.actions, self.rewards)
+        self.actions[self.index:self.index + num_actions] = normalized_actions
+        self.rewards[self.index:self.index + num_actions] = rewards
+        self.index += num_actions
+
+        # if self.actions is None:
+        #     self.actions = normalized_actions
+        #     self.rewards = rewards
+        # else:
+        #     self.actions = torch.cat((self.actions, normalized_actions))
+        #     self.rewards = torch.cat((self.rewards, rewards))
+
+        # model = fit_model(self.actions, self.rewards)
+        # candidate = self.get_candidate(model).to(torch.device('cpu'))
+
+        model = fit_model(self.actions[:self.index], self.rewards[:self.index])
         candidate = self.get_candidate(model).to(torch.device('cpu'))
 
         candidate_unnormalized = candidate * (self.x_range[1] - self.x_range[0]) + self.x_range[0]
 
-        return tensor_to_jax_array(candidate_unnormalized), model
+        del model
+        gc.collect()
+
+        return tensor_to_jax_array(candidate_unnormalized)
 
     @abc.abstractmethod
     def get_candidate(self, model):
         raise NotImplementedError
+
+    def reset(self):
+        self.actions = torch.empty((self.max_size, self.n_dim)).to(device).double()
+        self.rewards = torch.empty((self.max_size, 1)).to(device).double()
+        self.index = 0
+
 
 
 class RandomAgent(Agent):
@@ -152,6 +177,10 @@ class qPES(BOAgent):
             options={'with_grad': False},
             sequential=True,
         )
+
+        del optimal_inputs
+        del agent
+
         return candidate
 
 
@@ -224,6 +253,4 @@ class qEI(BOAgent):
             sequential=True,
         )
         return candidate
-
-
-
+        
