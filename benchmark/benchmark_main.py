@@ -19,6 +19,7 @@ from agent import RandomAgent, qPES, qMES, qJES, qEI
 from util import get_random_guess, tensor_to_jax_array, constrain
 
 import sys
+import gc
 
 # get path to save files
 path = ''
@@ -422,6 +423,8 @@ def run_experiment(_key: PRNGKeyArray):
                                 #     inference.append((opt_value - objective_function.step(true_state, x_max_mean)[1].reward).item())
 
                                 runtime.append(end - start)
+
+                                gc.collect()
 
                             except Exception as e:
                                 print(e)
