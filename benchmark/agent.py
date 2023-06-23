@@ -20,8 +20,8 @@ import gc
 from util import jax_array_to_tensor, tensor_to_jax_array
 
 # use a GPU if available
-# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-device = torch.device("cpu")
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# device = torch.device("cpu")
 
 def fit_model(train_x, train_y):
     model = SingleTaskGP(train_x, train_y, outcome_transform=Standardize(m=1))
