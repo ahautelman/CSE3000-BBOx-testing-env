@@ -27,7 +27,7 @@ if len(sys.argv) > 1:
     # Access the argument
     path = sys.argv[1]
 
-n_runs_per_agent = 1
+n_runs_per_agent = 3
 
 ### Run environment
 key = jax.random.PRNGKey(25)
