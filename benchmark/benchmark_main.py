@@ -397,7 +397,7 @@ def run_experiment(_key: PRNGKeyArray):
 
                                 # Agent-Environment interaction
                                 start = time.time()
-                                action, model = agent.get_action(key_policy, steps[-1])
+                                action = agent.get_action(key_policy, steps[-1])
                                 end = time.time()
 
                                 _, true_step = jax.vmap(objective_function.step, in_axes=(None, 0))(true_state, action)
