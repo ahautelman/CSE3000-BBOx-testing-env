@@ -30,7 +30,7 @@ if len(sys.argv) > 1:
 n_runs_per_agent = 5
 
 ### Run environment
-key = jax.random.PRNGKey(25)
+key = jax.random.PRNGKey(26)
 
 agents = {
     # 'random': RandomAgent,
@@ -75,49 +75,49 @@ testing_envs = {
     #     "noise": .40,
     #     "n_iter": 80,
     # }],
-    Easom: [
-        {
-        "batch_size": 2,
-        "dim": 2,
-        "noise": .05,
-        "n_iter": 80,
-    }, {
-        "batch_size": 2,
-        "dim": 10,
-        "noise": .05,
-        "n_iter": 80,
-    }, {
-        "batch_size": 2,
-        "dim": 25,
-        "noise": .05,
-        "n_iter": 100,
-    }, {
-        "batch_size": 2,
-        "dim": 50,
-        "noise": .05,
-        "n_iter": 80,
-    },],
-    # Zakharov: [{
+    # Easom: [
+    #     {
     #     "batch_size": 2,
     #     "dim": 2,
-    #     "noise": .0,
+    #     "noise": .05,
     #     "n_iter": 80,
     # }, {
-    #     "batch_size": 5,
-    #     "dim": 2,
-    #     "noise": .0,
-    #     "n_iter": 50,
+    #     "batch_size": 2,
+    #     "dim": 10,
+    #     "noise": .05,
+    #     "n_iter": 80,
     # }, {
-    #     "batch_size": 10,
-    #     "dim": 2,
-    #     "noise": .0,
-    #     "n_iter": 40,
+    #     "batch_size": 2,
+    #     "dim": 25,
+    #     "noise": .05,
+    #     "n_iter": 100,
     # }, {
-    #     "batch_size": 25,
-    #     "dim": 2,
-    #     "noise": .0,
-    #     "n_iter": 15,
-    # }],
+    #     "batch_size": 2,
+    #     "dim": 50,
+    #     "noise": .05,
+    #     "n_iter": 80,
+    # },],
+    Zakharov: [{
+        "batch_size": 2,
+        "dim": 2,
+        "noise": .0,
+        "n_iter": 80,
+    }, {
+        "batch_size": 5,
+        "dim": 2,
+        "noise": .0,
+        "n_iter": 50,
+    }, {
+        "batch_size": 10,
+        "dim": 2,
+        "noise": .0,
+        "n_iter": 40,
+    }, {
+        "batch_size": 25,
+        "dim": 2,
+        "noise": .0,
+        "n_iter": 15,
+    }],
     # Ackley: [{
     #     "batch_size": 5,
     #     "dim": 2,
