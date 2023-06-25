@@ -97,27 +97,27 @@ testing_envs = {
     #     "noise": .05,
     #     "n_iter": 80,
     # },],
-    Zakharov: [{
-        "batch_size": 2,
-        "dim": 2,
-        "noise": .0,
-        "n_iter": 80,
-    }, {
-        "batch_size": 5,
-        "dim": 2,
-        "noise": .0,
-        "n_iter": 50,
-    }, {
-        "batch_size": 10,
-        "dim": 2,
-        "noise": .0,
-        "n_iter": 40,
-    }, {
-        "batch_size": 25,
-        "dim": 2,
-        "noise": .0,
-        "n_iter": 15,
-    }],
+    # Zakharov: [{
+    #     "batch_size": 2,
+    #     "dim": 2,
+    #     "noise": .0,
+    #     "n_iter": 80,
+    # }, {
+    #     "batch_size": 5,
+    #     "dim": 2,
+    #     "noise": .0,
+    #     "n_iter": 50,
+    # }, {
+    #     "batch_size": 10,
+    #     "dim": 2,
+    #     "noise": .0,
+    #     "n_iter": 40,
+    # }, {
+    #     "batch_size": 25,
+    #     "dim": 2,
+    #     "noise": .0,
+    #     "n_iter": 15,
+    # }],
     # Ackley: [{
     #     "batch_size": 5,
     #     "dim": 2,
@@ -139,27 +139,27 @@ testing_envs = {
     #     "noise": .1,
     #     "n_iter": 80,
     # },],
-    # Schwefel: [{
-    #     "batch_size": 2,
-    #     "dim": 10,
-    #     "noise": .2,
-    #     "n_iter": 100,
-    # }, {
-    #     "batch_size": 5,
-    #     "dim": 10,
-    #     "noise": .2,
-    #     "n_iter": 70,
-    # }, {
-    #     "batch_size": 10,
-    #     "dim": 10,
-    #     "noise": .2,
-    #     "n_iter": 50,
-    # }, {
-    #     "batch_size": 25,
-    #     "dim": 10,
-    #     "noise": .2,
-    #     "n_iter": 20,
-    # }],
+    Schwefel: [{
+        "batch_size": 2,
+        "dim": 10,
+        "noise": .2,
+        "n_iter": 100,
+    }, {
+        "batch_size": 5,
+        "dim": 10,
+        "noise": .2,
+        "n_iter": 70,
+    }, {
+        "batch_size": 10,
+        "dim": 10,
+        "noise": .2,
+        "n_iter": 50,
+    }, {
+        "batch_size": 25,
+        "dim": 10,
+        "noise": .2,
+        "n_iter": 20,
+    }],
     # DifferentPowers: [{
     #     "batch_size": 5,
     #     "dim": 10,
